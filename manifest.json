@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Ad Skipper",
+  "version": "1.0",
+  "description": "Automatically skips YouTube ads when they become skippable",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "*://www.youtube.com/*",
+    "*://youtube.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*",
+        "*://youtube.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["content.js"],
+      "matches": ["*://www.youtube.com/*", "*://youtube.com/*"]
+    }
+  ]
+}
